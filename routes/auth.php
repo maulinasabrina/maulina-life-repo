@@ -9,9 +9,27 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\PublicController;
+
+
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
+
+    Route::get('/', [PublicController::class, 'index'])
+        ->name('landing');
+    Route::get('home', [PublicController::class, 'home'])
+        ->name('home');
+    Route::get('journal', [PublicController::class, 'journal'])
+        ->name('journal');
+    Route::get('project', [PublicController::class, 'project'])
+        ->name('project');
+    Route::get('about', [PublicController::class, 'about'])
+        ->name('about');
+    Route::get('reading', [PublicController::class, 'reading'])
+        ->name('reading');
+ 
+        
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
 
