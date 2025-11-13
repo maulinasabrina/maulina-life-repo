@@ -38,7 +38,7 @@ Route::middleware('guest')->group(function () {
         ->name('home');
     Route::get('journal', [PublicController::class, 'journal'])
         ->name('journal');
-    Route::get('journal-detail', [PublicController::class, 'journalDetail'])
+    Route::get('journal-detail/{slug}', [PublicController::class, 'journalDetail'])
         ->name('journalDetail');
     Route::get('project', [PublicController::class, 'project'])
         ->name('project');

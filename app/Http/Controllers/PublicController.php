@@ -22,12 +22,16 @@ class PublicController extends Controller
 
     public function journal()
     {
-        return view('public_user.journal');
+        $journals = Journal::all();
+        return view('public_user.journal',compact('journals'));
     }
 
-    public function journalDetail()
+    public function journalDetail($slug)
     {
-        return view('public_user.journal-detail');
+        $journals = Journal::where('slug', $slug)->firstOrFail();
+
+
+        return view('public_user.journal-detail',compact('journals'));
     }
 
     public function project()
