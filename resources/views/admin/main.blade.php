@@ -9,44 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <!-- Tailwind -->
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-  <style>
-    body {
-      background-color: #F6F1EA; /* cream */
-      color: #3A2F28; /* espresso */
-      font-family: 'Inter', system-ui, sans-serif;
-    }
-    h1, h2, h3, h4 {
-      font-family: 'Cormorant Garamond', serif;
-      color: #3A2F28;
-    }
-    a {
-      transition: all 0.3s ease;
-    }
-    a:hover {
-      color: #6B3A4C; /* wine */
-    }
-    .handwrite-hover {
-      position: relative;
-      display: inline-block;
-    }
-    .handwrite-hover::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(107,58,76,0.9), transparent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 350ms cubic-bezier(.2,.9,.2,1);
-      bottom: -3px;
-      border-radius: 2px;
-    }
-    .handwrite-hover:hover::after {
-      transform: scaleX(1);
-    }
-  </style>
+  @vite(['resources/css/admin.css'])
 </head>
 
 <body class="antialiased flex flex-col min-h-screen">
