@@ -20,7 +20,7 @@
       </div>
 
       <!-- SONG RECOMMENDATION -->
-      <div class="p-6 border border-graphite/30 rounded-xl hover:border-wine transition-colors bg-white/50">
+      <div class="p-6 border border-graphite/30 rounded-xl hover:border-wine transition-colors">
         <h2 class="font-serif text-2xl mb-4">Song Recommendations 🎧</h2>
         <div class="space-y-4">
           <div class="flex items-center gap-3">
@@ -50,12 +50,17 @@
       <!-- RECENT BLOG -->
       <div class="p-6 border border-graphite/30 rounded-xl hover:border-wine transition-colors">
         <h2 class="font-serif text-2xl mb-3">Recent Blog</h2>
+        @if ($recentJournal)
         <article>
-          <h3 class="font-serif text-lg mb-1">I thought about you while debugging</h3>
-          <p class="text-xs text-espresso/70 mb-2">Nov 11, 2025 · Journal</p>
-          <p class="text-sm text-espresso/80 mb-3">There’s a poetry in logic when patience feels like art.</p>
+          <h3 class="font-serif text-lg mb-1">{{ $recentJournal->title }}</h3>
+          <p class="text-xs text-espresso/70 mb-2"> {{ $recentJournal->date ? \Carbon\Carbon::parse($recentJournal->date)->format('M d, Y') : $recentJournal->created_at->format('M d, Y') }}
+        · {{ $recentJournal->category }}</p>
+          <p class="text-sm text-espresso/80 mb-3">{{ Str::limit($recentJournal->excerpt, 80) }}</p>
           <a href="{{ url('/journal') }}" class="text-sm handwrite-hover">Read more →</a>
         </article>
+        @else
+          <p class="text-espresso/60 text-sm italic">No recent journal yet.</p>
+        @endif
       </div>
     </div>
 
@@ -98,12 +103,12 @@
       <div class="p-6 border border-graphite/30 rounded-xl hover:border-wine transition-colors">
         <h2 class="font-serif text-2xl mb-3">Moodboard ✨</h2>
         <div class="grid grid-cols-3 gap-2">
-          <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=800" class="rounded-md object-cover h-24 w-full">
-          <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&w=800" class="rounded-md object-cover h-24 w-full">
-          <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?q=80&w=800" class="rounded-md object-cover h-24 w-full">
-          <img src="https://images.unsplash.com/photo-1518976024611-28bf50c2d05b?q=80&w=800" class="rounded-md object-cover h-24 w-full">
-          <img src="https://images.unsplash.com/photo-1602526211132-6b72a5d4b8d7?q=80&w=800" class="rounded-md object-cover h-24 w-full">
-          <img src="https://images.unsplash.com/photo-1505685296765-3a2736de412f?q=80&w=800" class="rounded-md object-cover h-24 w-full">
+          <img src="{{ asset('assets/images/moodboard/pic1.jpg') }}" class="rounded-md object-cover h-24 w-full">
+          <img src="{{ asset('assets/images/moodboard/pic2.jpg') }}" class="rounded-md object-cover h-24 w-full">
+          <img src="{{ asset('assets/images/moodboard/pic3.jpg') }}" class="rounded-md object-cover h-24 w-full">
+          <img src="{{ asset('assets/images/moodboard/pic4.jpg') }}" class="rounded-md object-cover h-24 w-full">
+          <img src="{{ asset('assets/images/moodboard/pic5.jpg') }}" class="rounded-md object-cover h-24 w-full">
+          <img src="{{ asset('assets/images/moodboard/pic6.jpg') }}" class="rounded-md object-cover h-24 w-full">
         </div>
       </div>
 

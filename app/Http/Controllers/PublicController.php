@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Journal;
+
 
 use Illuminate\Http\Request;
 
@@ -13,12 +15,19 @@ class PublicController extends Controller
 
     public function home()
     {
-        return view('public_user.home');
+        $recentJournal = Journal::latest()->first();
+        return view('public_user.home',compact('recentJournal'));
+
     }
 
     public function journal()
     {
         return view('public_user.journal');
+    }
+
+    public function journalDetail()
+    {
+        return view('public_user.journal-detail');
     }
 
     public function project()

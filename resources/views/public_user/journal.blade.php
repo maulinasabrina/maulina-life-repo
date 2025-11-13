@@ -14,7 +14,7 @@
           <h2 class="font-serif text-2xl">I thought about you while debugging</h2>
           <div class="text-sm text-espresso/70 mt-1 mb-3">Nov 11, 2025 · Journal</div>
           <p class="mb-3">There is a certain soft violence to patience — the kind that waits for a test to pass and then reads the stack trace as if reading a letter.</p>
-          <a href="journal.html#post-sample" class="handwrite-hover text-sm">Open →</a>
+          <a href="/journal-detail" class="handwrite-hover text-sm">Open →</a>
         </article>
 
         <article class="p-6 rounded-xl border border-graphite/40">
