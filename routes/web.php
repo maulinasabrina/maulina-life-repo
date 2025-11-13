@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
     Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-    Route::get('admin/journal', [AdminController::class, 'journal'])->name('journal');
+    Route::get('admin/journal', [AdminController::class, 'journal'])->name('adminJournal');
     Route::get('admin/journal/{id}', [AdminController::class, 'showJournal'])->name('showJournal');
     Route::get('admin/journal-entry', [AdminController::class, 'journalEntry'])->name('addJournal');
     Route::post('admin/journal-store', [AdminController::class, 'journalStore'])->name('storeJournal');
