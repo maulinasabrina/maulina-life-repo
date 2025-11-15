@@ -8,25 +8,25 @@ use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
-    public function index()
+    public function showLanding()
     {
         return view('public_user.index');
     }
 
-    public function home()
+    public function showHome()
     {
         $recentJournal = Journal::latest()->first();
         return view('public_user.home',compact('recentJournal'));
 
     }
 
-    public function journal()
+    public function showJournal()
     {
         $journals = Journal::all();
         return view('public_user.journal',compact('journals'));
     }
 
-    public function journalDetail($slug)
+    public function showDetailJournal($slug)
     {
         $journals = Journal::where('slug', $slug)->firstOrFail();
 
@@ -34,17 +34,17 @@ class PublicController extends Controller
         return view('public_user.journal-detail',compact('journals'));
     }
 
-    public function project()
+    public function showProject()
     {
         return view('public_user.project');
     }
 
-    public function about()
+    public function showAbout()
     {
         return view('public_user.about');
     }
     
-    public function reading()
+    public function showReading()
     {
         return view('public_user.reading');
     }

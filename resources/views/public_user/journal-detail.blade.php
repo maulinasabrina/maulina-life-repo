@@ -27,7 +27,7 @@
 
     <!-- Back link -->
     <div class="mt-10">
-      <a href="{{ url('/journals') }}" class="handwrite-hover text-sm">&larr; Back to journals</a>
+      <a href="{{ route('journal') }}" class="handwrite-hover text-sm">&larr; Back to journals</a>
     </div>
   </article>
 @endsection

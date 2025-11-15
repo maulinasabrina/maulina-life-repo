@@ -8,48 +8,33 @@ use Illuminate\Support\Str;
 
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class JournalController extends Controller
 {
     
-     public function dashboard(){
-        $journals = Journal::latest()->take(3)->get();
-        $totalJournals = Journal::count(); 
-        $latestJournal = Journal::latest()->first();
-
-        $projects = Project::latest()->take(3)->get();
-        $totalProjects = Project::count(); 
-        $latestProject = Project::latest()->first();
-
-        return view('admin.dashboard', compact('journals', 'totalJournals', 'latestJournal', 'projects', 'totalProjects', 'latestProject'));
-       
-    }
-
-    public function journal(){
-        $journals = Journal::latest()->take(3)->get();
+    public function getAll(){
+        $journals = Journal::all();
         $totalJournals = Journal::count(); 
         $latestJournal = Journal::latest()->first();
 
         return view('admin.journal',compact('journals', 'totalJournals', 'latestJournal'));
     }
 
-     public function showJournal($id){
+     public function getById ($id){
        $journals = Journal::findOrFail($id);
 
         return view('admin.journal-detail', compact('journals'));
        
     }
 
-    public function journalEntry(){
+    public function createNew (){
      
-
          return view('admin.journal-entry');
     }
 
 
 
-     public function journalStore(Request $request)
+     public function add (Request $request)
     {
-        // dd($request);
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'date' => 'nullable|date',
@@ -76,7 +61,7 @@ class AdminController extends Controller
                         ->with('success', 'New journal entry added successfully ☕');
         }
 
-    // public function edit($id) {
+    // public function updatebyId ($id) {
     //     $posts = Posts::findOrFail($id);
     //     $title = 'Edit Journal';
     //     $button = 'Update';
@@ -89,7 +74,7 @@ class AdminController extends Controller
     //     return view('mini-project-3.form', compact('posts','tagsString','title','button'));
     // }
 
-    // public function update(Request $request, $id) {
+    // public function modify(Request $request, $id) {
     //     $validated = $request->validate([
     //             'title' => 'required',
     //             'excerpt' => 'required',

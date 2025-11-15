@@ -71,11 +71,11 @@
         </p>
 
         <nav class="flex flex-col gap-3 text-sm">
-          <a href="{{ url('/home') }}" class="hover:w-20 hover:bg-espresso hover:rounded-full hover:text-white hover:text-center {{ request()->is('/') ? 'text-wine font-medium' : '' }}">Home</a>
-          <a href="{{ url('/journal') }}" class="hover:w-20 hover:bg-espresso hover:rounded-full hover:text-white hover:text-center {{ request()->is('journal') ? 'text-wine font-medium' : '' }}">Journal</a>
-          <a href="{{ url('/project') }}" class="hover:w-20 hover:bg-espresso hover:rounded-full hover:text-white hover:text-center {{ request()->is('project') ? 'text-wine font-medium' : '' }}">Projects</a>
-          <a href="{{ url('/reading') }}" class="hover:w-20 hover:bg-espresso hover:rounded-full hover:text-white hover:text-center {{ request()->is('reading') ? 'text-wine font-medium' : '' }}">Reading</a>
-          <a href="{{ url('/about') }}" class="hover:w-20 hover:bg-espresso hover:rounded-full hover:text-white hover:text-center {{ request()->is('about') ? 'text-wine font-medium' : '' }}">About</a>
+          <a href="{{ route('home') }}" class="hover:w-20 hover:bg-espresso hover:rounded-full hover:text-white hover:text-center {{ request()->is('/') ? 'text-wine font-medium' : '' }}">Home</a>
+          <a href="{{ route('journal') }}" class="hover:w-20 hover:bg-espresso hover:rounded-full hover:text-white hover:text-center {{ request()->is('journal') ? 'text-wine font-medium' : '' }}">Journal</a>
+          <a href="{{ route('project') }}" class="hover:w-20 hover:bg-espresso hover:rounded-full hover:text-white hover:text-center {{ request()->is('project') ? 'text-wine font-medium' : '' }}">Projects</a>
+          <a href="{{ route('reading') }}" class="hover:w-20 hover:bg-espresso hover:rounded-full hover:text-white hover:text-center {{ request()->is('reading') ? 'text-wine font-medium' : '' }}">Reading</a>
+          <a href="{{ route('about') }}" class="hover:w-20 hover:bg-espresso hover:rounded-full hover:text-white hover:text-center {{ request()->is('about') ? 'text-wine font-medium' : '' }}">About</a>
         </nav>
 
         <div class="mt-8 flex gap-4 text-espresso/70">

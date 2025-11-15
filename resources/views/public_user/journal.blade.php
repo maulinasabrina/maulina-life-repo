@@ -18,7 +18,7 @@
           · {{ $journal->category }}
         </p>
         <p class="text-sm text-espresso/80 mb-3">{{ Str::limit($journal->excerpt, 100) }}</p>
-        <a href="{{ route('journalDetail', $journal->slug) }}" class="text-sm handwrite-hover">Open →</a>
+        <a href="{{ route('journal.detail', $journal->slug) }}" class="text-sm handwrite-hover">Open →</a>
       </article>
     @empty
       <p class="text-espresso/60 text-sm italic">No journal entries yet.</p>

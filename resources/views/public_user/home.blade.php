@@ -56,7 +56,7 @@
           <p class="text-xs text-espresso/70 mb-2"> {{ $recentJournal->date ? \Carbon\Carbon::parse($recentJournal->date)->format('M d, Y') : $recentJournal->created_at->format('M d, Y') }}
         · {{ $recentJournal->category }}</p>
           <p class="text-sm text-espresso/80 mb-3">{{ Str::limit($recentJournal->excerpt, 80) }}</p>
-          <a href="{{ url('/journal') }}" class="text-sm handwrite-hover">Read more →</a>
+          <a href="{{ route('journal.detail') }}" class="text-sm handwrite-hover">Read more →</a>
         </article>
         @else
           <p class="text-espresso/60 text-sm italic">No recent journal yet.</p>
