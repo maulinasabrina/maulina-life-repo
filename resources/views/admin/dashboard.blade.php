@@ -51,7 +51,7 @@
                 <p class="text-xs text-espresso/60">{{ $journal->created_at->format('M d, Y') }}</p>
               </div>
               <div class="flex space-x-4 text-xs uppercase tracking-widest">
-                <a href="{{ route('showJournal', $journal->id) }}" class="handwrite-hover">View</a>
+                <a href="{{ route('journal.detail', $journal->id) }}" class="handwrite-hover">View</a>
                 <a href="" class="handwrite-hover">Edit</a>
                 <form method="POST" action="">
                   @csrf
