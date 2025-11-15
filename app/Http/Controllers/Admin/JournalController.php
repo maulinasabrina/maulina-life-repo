@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller; 
 use App\Models\Journal;
-use App\Models\Project;
 use Illuminate\Support\Str;
 
 
@@ -28,10 +27,9 @@ class JournalController extends Controller
     }
 
     public function createNew (){
-     
-         return view('admin.journal-entry');
+        $title = 'Create New Journal';
+         return view('admin.journal-entry', compact('title'));
     }
-
 
 
      public function add (Request $request)
@@ -58,9 +56,16 @@ class JournalController extends Controller
 
         Journal::create($validated);
 
-        return redirect()->route('journal')
+        return redirect()->route('admin.journal')
                         ->with('success', 'New journal entry added successfully ☕');
-        }
+    }
+
+    public function updatebyId ($id){
+        $title = 'Edit Journal';
+        $journals = Journal::findOrFail($id);
+
+        return view('admin.journal-entry', compact('title','journals'));
+    }
 
     // public function updatebyId ($id) {
     //     $posts = Posts::findOrFail($id);
@@ -95,9 +100,9 @@ class JournalController extends Controller
     //     return redirect('/posts')->with('success', 'Post updated!');
     // }
 
-     public function journalDestroy($id) {
+     public function delete ($id) {
         Journal::destroy($id);
-        return redirect('/journal')->with('success', 'Post deleted!');
+        return redirect()->route('admin.journal')->with('success', 'Post deleted!');
     }
 
 }

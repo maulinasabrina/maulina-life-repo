@@ -18,9 +18,9 @@
     <div class="max-w-6xl mx-auto flex justify-between items-center px-8 py-6">
       <h1 class="text-3xl font-serif tracking-wide">milk & terminal</h1>
       <nav class="flex space-x-8 text-sm text-espresso/80 uppercase tracking-widest">
-        <a href="/admin/dashboard" class="handwrite-hover">Home</a>
-        <a href="{{route('journal')}}" class="handwrite-hover">Journal</a>
-        <a href="/project" class="handwrite-hover">Projects</a>
+        <a href="{{route('admin.dashboard')}}" class="handwrite-hover">Home</a>
+        <a href="{{route('admin.journal')}}" class="handwrite-hover">Journal</a>
+        <a href="" class="handwrite-hover">Projects</a>
           <!-- Authentication -->
         <form method="POST" action="{{ route('logout') }}">
             @csrf

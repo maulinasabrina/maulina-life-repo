@@ -10,8 +10,8 @@
 
   <!-- Add New Button -->
   <div class="flex justify-end mb-8">
-    <a href="/admin/journal-entry" 
-       class="px-5 py-2 text-sm uppercase tracking-widest rounded-lg border border-graphite/30 hover:bg-cream transition handwrite-hover">
+    <a href="{{ route('create.journal')}}" 
+       class="px-5 py-2 text-sm uppercase tracking-widest rounded-lg border-2 border-graphite hover:bg-black hover:text-white transition ">
        + Add New Entry
     </a>
   </div>
@@ -39,9 +39,9 @@
               <td class="px-6 py-4 text-sm text-espresso/70">{{ $journal->created_at->format('M d, Y') }}</td>
               <td class="px-6 py-4 text-sm text-espresso/70">{{ $journal->updated_at->diffForHumans() }}</td>
               <td class="px-6 py-4 text-right flex justify-end space-x-4 text-xs uppercase tracking-widest">
-                <a href="{{ route('showJournal', $journal->id) }}" class="handwrite-hover">View</a>
+                <a href="{{ route('show.journal', $journal->id) }}" class="handwrite-hover">View</a>
                 <a href=""  class="handwrite-hover">Edit</a>
-                <form method="POST" action="{{ route('journalDestroy', $journal->id) }}" onsubmit="return confirm('Delete this entry?')">
+                <form method="POST" action="{{ route('delete.journal', $journal->id) }}" onsubmit="return confirm('Delete this entry?')">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="handwrite-hover text-wine/80">Delete</button>
