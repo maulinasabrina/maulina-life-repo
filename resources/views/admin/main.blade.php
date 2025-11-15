@@ -35,7 +35,7 @@
   </header>
 
   <!-- Main -->
-  <main class="flex-grow max-w-6xl mx-auto px-8 py-14">
+  <main class="w-full px-80 py-14">
     @yield('content')
   </main>
 

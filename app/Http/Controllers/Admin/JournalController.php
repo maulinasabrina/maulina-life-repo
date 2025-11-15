@@ -28,7 +28,10 @@ class JournalController extends Controller
 
     public function createNew (){
         $title = 'Create New Journal';
-         return view('admin.journal-entry', compact('title'));
+        $button = 'Save';
+
+
+        return view('admin.journal-entry', compact('title','button'));
     }
 
 
@@ -63,8 +66,31 @@ class JournalController extends Controller
     public function updatebyId ($id){
         $title = 'Edit Journal';
         $journals = Journal::findOrFail($id);
+        $button = 'Update';
+        
+        return view('admin.journal-entry', compact('title','journals','button'));
+    }
 
-        return view('admin.journal-entry', compact('title','journals'));
+    public function modify(Request $request, $id) {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'date' => 'nullable|date',
+            'category' => 'nullable|string|max:100',
+            'excerpt' => 'nullable|string',
+            'content' => 'nullable|string',
+            // 'image_url' => 'nullable|string',
+        ]);
+
+        $journal = Journal::findOrFail($id);
+        $journal->update([
+                'title' => $validated['title'],
+                'date' => $validated['date'],
+                'category' => $validated['category'],
+                'excerpt' => $validated['excerpt'],
+                'content' => $validated['content'],
+            ]);
+
+        return redirect()->route('admin.journal')->with('success', 'Post updated!');
     }
 
     // public function updatebyId ($id) {
@@ -80,24 +106,11 @@ class JournalController extends Controller
     //     return view('mini-project-3.form', compact('posts','tagsString','title','button'));
     // }
 
-    // public function modify(Request $request, $id) {
-    //     $validated = $request->validate([
-    //             'title' => 'required',
-    //             'excerpt' => 'required',
-    //             'content' => 'required',
-    //             'tags' => 'required',
-    //     ]);
+    
 
     //     $tagsArray = array_map('trim', explode(',', $validated['tags']));
 
-    //     $post = Posts::findOrFail($id);
-    //     $post->update([
-    //             'title' => $validated['title'],
-    //             'excerpt' => $validated['excerpt'],
-    //             'content' => $validated['content'],
-    //             'tags' => json_encode($tagsArray),
-    //         ]);
-    //     return redirect('/posts')->with('success', 'Post updated!');
+    //    
     // }
 
      public function delete ($id) {

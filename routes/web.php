@@ -24,6 +24,8 @@ Route::middleware('auth')->group(function () {
             Route::get('create', 'createNew')->name('create.journal');
             Route::post('add', 'add')->name('add.journal');
             Route::delete('delete/{id}','delete')->name('delete.journal');
+            Route::get('edit/{id}', 'updatebyId')->name('edit.journal');
+            Route::put('modify/{id}', 'modify')->name('modify.journal');
         });
     
     });

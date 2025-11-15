@@ -38,14 +38,37 @@
               <td class="px-6 py-4 font-medium text-espresso">{{ $journal->title }}</td>
               <td class="px-6 py-4 text-sm text-espresso/70">{{ $journal->created_at->format('M d, Y') }}</td>
               <td class="px-6 py-4 text-sm text-espresso/70">{{ $journal->updated_at->diffForHumans() }}</td>
-              <td class="px-6 py-4 text-right flex justify-end space-x-4 text-xs uppercase tracking-widest">
-                <a href="{{ route('show.journal', $journal->id) }}" class="handwrite-hover">View</a>
-                <a href=""  class="handwrite-hover">Edit</a>
-                <form method="POST" action="{{ route('delete.journal', $journal->id) }}" onsubmit="return confirm('Delete this entry?')">
-                  @csrf
-                  @method('DELETE')
-                  <button type="submit" class="handwrite-hover text-wine/80">Delete</button>
-                </form>
+              <td class="px-6 py-4 text-right flex justify-end space-x-4 text-xs  tracking-widest">
+                <div class="flex items-center space-x-3">
+
+                  <!-- View -->
+                  <a href="{{ route('show.journal', $journal->id) }}"
+                    class="px-3 py-1.5 text-xs rounded-lg border border-graphite/30 text-espresso/80 
+                            hover:bg-cream/40 hover:border-graphite/50 transition">
+                      View
+                  </a>
+
+                  <!-- Edit -->
+                  <a href="{{ route('edit.journal', $journal->id) }}"
+                    class="px-3 py-1.5 text-xs rounded-lg border border-wine/30 text-wine/80 
+                            hover:bg-wine/10 hover:border-wine/50 transition">
+                      Edit
+                  </a>
+
+                  <!-- Delete -->
+                  <form method="POST" action="{{ route('delete.journal', $journal->id) }}"
+                        onsubmit="return confirm('Delete this entry?')">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit"
+                              class="px-3 py-1.5 text-xs rounded-lg border border-red-300 text-red-600 
+                                    hover:bg-red-100 hover:border-red-500 transition">
+                          Delete
+                      </button>
+                  </form>
+
+              </div>
+
               </td>
             </tr>
           @endforeach
