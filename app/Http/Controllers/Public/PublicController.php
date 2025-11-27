@@ -16,6 +16,7 @@ class PublicController extends Controller
     public function showHome()
     {
         $recentJournal = Journal::latest()->first();
+        
         return view('public_user.home',compact('recentJournal'));
 
     }

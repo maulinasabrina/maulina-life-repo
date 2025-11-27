@@ -10,6 +10,9 @@
 
   <!-- Tailwind -->
   @vite(['resources/css/admin.css'])
+
+ 
+  @stack('styles')
 </head>
 
 <body class="antialiased flex flex-col min-h-screen">
