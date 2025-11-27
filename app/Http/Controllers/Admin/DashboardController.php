@@ -12,9 +12,12 @@ class DashboardController extends Controller
 {
     
      public function getAll(){
+     
         $journals = Journal::latest()->take(3)->get();
         $totalJournals = Journal::count(); 
         $latestJournal = Journal::latest()->first();
+
+        // dd($journals);
 
         $projects = Project::latest()->take(3)->get();
         $totalProjects = Project::count(); 

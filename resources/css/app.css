@@ -1,3 +1,105 @@
+
+/* -------------------------------------- */
+/*               TAILWIND                 */
+/* -------------------------------------- */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* -------------------------------------- */
+/*           CUSTOM GLOBAL STYLE          */
+/* -------------------------------------- */
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Handwritten underline hover */
+.handwrite-hover {
+  position: relative;
+  display: inline-block;
+}
+.handwrite-hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(107, 58, 76, 0.9),
+    transparent
+  );
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 350ms cubic-bezier(.2,.9,.2,1);
+  bottom: -3px;
+  border-radius: 2px;
+}
+.handwrite-hover:hover::after {
+  transform: scaleX(1);
+}
+
+/* Code block styling */
+pre code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono',
+    monospace;
+  font-size: 13px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #C9C4BE;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #C79C9C;
+}
+
+/* -------------------------------------- */
+/*           RESPONSIVE LAYOUT            */
+/* -------------------------------------- */
+
+/* Sidebar responsive control */
+@media (max-width: 1024px) {
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    transition: all 0.4s ease;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .sidebar-toggle-btn {
+    display: block !important;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    padding: 2rem !important;
+  }
+}
+
+/* Mobile size adjustments */
+@media (max-width: 640px) {
+  .main-content {
+    padding: 1.5rem !important;
+  }
+
+  .profile-name {
+    font-size: 1.2rem !important;
+  }
+}
