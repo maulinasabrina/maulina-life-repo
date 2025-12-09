@@ -49,6 +49,7 @@ Route::middleware('guest')->group(function () {
     Route::controller(PublicController::class)->group(function () {
         Route::get('/', 'showLanding') ->name('landing');
         Route::get('home', 'showHome')->name('home');
+        Route::get('maintain', 'showMaintain')->name('maintain');
         Route::get('journal', 'showJournal')->name('journal');
         Route::get('journal/{slug}', 'showDetailJournal')->name('journal.detail');
         Route::get('project', 'showProject')->name('project');
