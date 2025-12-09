@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
   <!-- Tailwind -->
-  @vite(['resources/css/admin.css'])
+  @vite(['resources/css/admin.css', 'resources/js/admin.js'])
 
  
   @stack('styles')
