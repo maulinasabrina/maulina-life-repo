@@ -13,6 +13,11 @@ class PublicController extends Controller
         return view('public_user.index');
     }
 
+    public function showMaintain()
+    {
+        return view('public_user.maintain');
+    }
+
     public function showHome()
     {
         $recentJournal = Journal::latest()->first();
